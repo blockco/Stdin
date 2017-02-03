@@ -63,7 +63,6 @@ void col_vect(t_vector *vect)
 	while((int)vect->size >= 0)
 	{
 		free(*(char **)vectspot(vect->size, vect));
-		ft_putendl("");
 		vect->size--;
 	}
 }

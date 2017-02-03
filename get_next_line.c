@@ -6,7 +6,7 @@
 /*   By: rpassafa <rpassafa@student.42.us>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 13:13:39 by rpassafa          #+#    #+#             */
-/*   Updated: 2017/02/03 02:02:53 by rpassafa         ###   ########.us       */
+/*   Updated: 2017/02/03 15:32:20 by rpassafa         ###   ########.us       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,40 @@ char	*read_tmp()
 
 	str1 = ft_strnew(BUFF_SIZE);
 	bytes_read = 0;
+	ft_putstr("$> ");
 	while (ft_strchr(ret, '\n') == NULL)
 	{
+		vect_insert(vect, vect->size, &str1);
 		bzero(str1, 2);
 		str1 = ft_strnew(BUFF_SIZE);
 		if (bytes_read > 0)
-		{
 			vect_insert(vect, vect->size, &ret);
-			ft_putendl("here");
-			printf("string: %s memmoy: %p\n", ret, ret);;
-		}
-		bytes_read = read(0, str1, BUFF_SIZE);
-		if (bytes_read == 1)
+		bytes_read += read(0, str1, BUFF_SIZE);
+		if (bytes_read > 1)
 			ret = ft_strjoin(ret,(const char*)str1);
-		ft_putendl("");
+		else
+			ret = ft_strdup(str1);
 	}
-	free (str1);
 	col_vect(vect);
 	return (ret);
 }
 
-int main()
+int main(int argc, char **argv, char** envp)
 {
 	char *str;
+	char** env;
+
+	if (argc < 0)
+		;
+	if (argv)
+		;
+	env = envp;
+	// while (*env != 0)
+	// {
+	// 	char* thisEnv = *env;
+	// 	printf("%s\n", thisEnv);
+	// 	env++;
+	// }
 
 	while(1)
 	{
