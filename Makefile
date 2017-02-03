@@ -56,6 +56,7 @@ SRCS =	libft/ft_putchar.c \
 		libft/ft_putstr_fd.c \
 		libft/ft_putendl_fd.c \
 		libft/ft_putnbr_fd.c \
+		vector.c \
 		get_next_line.c \
 
 OBJS =	$(NAME)

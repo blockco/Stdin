@@ -10,6 +10,6 @@
 # define ENDL '\n'
 # define BUFF_SIZE 1
 
-char	*read_tmp(const int fd, char **buf);
+char	*read_tmp();
 
 #endif
